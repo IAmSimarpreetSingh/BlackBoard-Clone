@@ -1,0 +1,118 @@
+
+.mainLoginContainer {
+    background: #272727;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.loginContainer {
+    position: relative;
+    display: inline-block;
+    line-height: 55px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 10px;
+    margin-top: 7%;
+}
+
+
+.BBlogoImg {
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    width: 290px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+
+.inputContainerLogin {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.listStyleLogin {
+    list-style: none;
+    padding: 24px;
+    display: block;
+    width: 100%;
+}
+
+
+.inputStyleLogin {
+    position: relative;
+    outline: none;
+    background: inherit;
+    border: none;
+    border-bottom: 2px solid #fff;
+    display: block;
+    width: 290px;
+    padding: 8px;
+    color: #fff;
+}
+
+
+.inputStyleLogin:focus {
+    border-color: #800080;
+}
+
+
+.buttonStyleLogin {
+    display: inline-block;
+    width: 88%;
+    height: 40px;
+    background: inherit;
+    color: #919191;
+    border: 1px solid #969696;
+    cursor: pointer;
+    margin: 45px 0;
+}
+
+.buttonStyleLogin:hover {
+    background: #fff;
+    border-color: #800080;
+}
+
+.buttonStyleLogin:active {
+    background: #dd7bdd;
+    color: #000000;
+    border-color: #fff;
+}
+
+
+.bottomLinksLogin {
+    position: relative;
+    display: block;
+    margin-top: 30px;
+}
+
+
+.aCatelogLogin {
+    text-decoration: underline;
+    color: #7C7C7C;
+    font-size: 13px;
+    padding: 20px;
+}
+
+
+.bottomSmallLogin {
+    color: #7C7C7C;
+    font-size: 14px;
+}
+
+
+.aPrivacyLogin {
+    color: #7C7C7C;
+    display: inline-flex;
+    transform: translateY(-30px);
+    font-size: 13px;
+    margin: 0 5px;
+}

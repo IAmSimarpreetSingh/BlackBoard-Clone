@@ -1,0 +1,93 @@
+
+
+.upperActivityContainer {
+    display: block;
+    position: absolute;
+    left: 15%;
+    width: 85%;
+    height: 100vh;
+    overflow: hidden auto;
+}
+
+.activityTitle {
+    width: 100%;
+    border-bottom: 1px solid #acacac;
+    height: 118px;
+    position: relative;
+    text-align: left;
+}
+
+.activityTitle > h1 {
+    line-height: 120px;
+    display: block;
+    margin-left: 2rem;
+    font-weight: 200;
+    word-spacing: 2px;
+}
+
+
+.activities {
+    display: flex;
+    margin-top: 4%;
+}
+
+.activities .vL {
+    margin-left: 20%;
+    border-left: 2px solid #ff000067;
+    height: 100vh;
+}
+
+.activities > h1 {
+    display: block;
+    margin-left: 2%;
+    font-weight: 50;
+    letter-spacing: 2px;
+    color: #ff0000;
+}
+
+.Activitystreams {
+    position: absolute;
+    margin-top: 5%;
+    width: 100%;
+    height: 100px;
+}
+
+.Activitystreams:hover {
+    background-color: rgba(216, 209, 209, 0.527);
+    cursor: pointer;
+}
+
+.fa-file-text {
+    color: #ff0000;
+}
+
+.stream {
+    margin: 2% 18.2%;
+}
+
+.streamCourse {
+    margin-left: 8%;
+    margin-top: -7%;
+    height: 60px;
+    border-left: 2px solid #ff0000;
+}
+
+.streamCourse > h1 {
+    font-size: 18px;
+    font-weight: 100;
+    margin-left: 2%;
+}
+
+.streamCourse > small {
+    margin-left: 2%;
+}
+
+.stream > button {
+    position: absolute;
+    margin: -3.5% 50%;
+    width: 80px;
+    height: 35px;
+    background-color: rgba(77, 77, 77, 0.144);
+    border: 1px solid rgba(77, 77, 77, 0.144);
+    border-radius: 2px;
+}
