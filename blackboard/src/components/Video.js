@@ -16,15 +16,15 @@ function Video(props) {
         <Grid container style={{ height: "100%" }}>
             <Grid item xs={gridSpacing}>
                 <AgoraVideoPlayer videoTrack={tracks[1]}
-                    style={{ height: "100%", width: "100%" }} />
+                    style={{ height: "100%", width: "100%", border: "5px solid black" }} />
             </Grid>
             {
                 users.length > 0 && users.map((user) => {
                     if (user.videoTrack) {
-                        return <Grid item xs={gridSpacing} style={{ border: "10% 20% solid black" }}>
+                        return <Grid item xs={gridSpacing}>
                             <AgoraVideoPlayer videoTrack={user.videoTrack}
                             key={user.uid}
-                                style={{ height: "100%", width: "100%" }} />
+                                style={{ height: "100%", width: "100%", border: "5px solid black"}} />
                         </Grid>
                         
                     }else return null;
