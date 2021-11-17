@@ -12,7 +12,7 @@ const Authenticate = async (req, res, next) => {
 
         
         const token = getcookie(req);
-        console.log(token);
+        // console.log(token);
         
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
 

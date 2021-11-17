@@ -61,7 +61,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <i className="fa fa-cog fa-lg"></i>
-                            <NavLink to="tools">Tools</NavLink>
+                            <NavLink to="/tools">Tools</NavLink>
                         </li>
                         <li>
                             <i className="fa fa-sign-out fa-lg"></i>

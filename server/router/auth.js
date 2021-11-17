@@ -117,13 +117,17 @@ router.post('/signin', async (req, res) => {
 // Profile Page
 
 router.get('/profile', authenticate ,(req, res) => { 
-    console.log(`Router /profile`);
     res.send(req.rootUser);
 });
 
 router.get('/courses', authenticate, (req, res) => {
-    console.log(`Router /courses`);
     res.send(req.rootUser);
 });
+
+router.get('/signout', (req, res) => {
+    res.clearCookie('jwtoken', {path:'/'});
+    res.status(200).send('User Logout');
+});
+
 
 module.exports = router;
