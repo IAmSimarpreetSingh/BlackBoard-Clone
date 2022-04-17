@@ -67,8 +67,12 @@ function Profile() {
                                 <td>{userData.name}</td>
                             </tr>
                             <tr>
-                                <td><span>STUDENT ID</span></td>
+                                <td><span>UID</span></td>
                                 <td>{userData.uid}</td>
+                            </tr>
+                            <tr>
+                                <td><span>ROLE</span></td>
+                                <td style={{ textTransform: 'capitalize' }}>{userData.role}</td>
                             </tr>
                         </tbody>
                     </table>

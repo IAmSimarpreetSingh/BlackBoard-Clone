@@ -10,9 +10,9 @@ function BlackboardCollaborate() {
     return (
         <div className="CollaborateVideoClass">
             {inCall ? <VideoCall setInCall={setInCall} /> : (
-                <Button variant="contained" color="primary" onClick={() => setInCall(true)}>
+                <button variant="contained" color="primary" onClick={() => setInCall(true)}>
                     Start
-                </Button>
+                </button>
             )}
         </div>
     );

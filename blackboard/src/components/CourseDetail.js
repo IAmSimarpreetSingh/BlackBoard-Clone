@@ -22,7 +22,6 @@ function CourseDetail() {
     let course;
     const [courseData, setCourseData] = useState();
     const [selectedCourse, setSelectedCourse] = useState();
-    const [role, setRole] = useState()
 
     const callCourses = async () => {
         try {
@@ -38,25 +37,6 @@ function CourseDetail() {
 
             const data = await res.json();
             setCourseData(data);
-
-
-
-            const profile = await fetch('/profile', {
-                method: "GET",
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                },
-                credentials: "include"
-            });
-
-            const profileData = await profile.json();
-
-            if (profileData.role === "teacher") {
-                setRole(true)
-            } else {
-                setRole(false)
-            }
 
 
             if (!res === 200) {
@@ -96,7 +76,6 @@ function CourseDetail() {
 
     }, []);
 
-    console.log(role)
 
     return (
         <div className="CourseDetailMainDiv">
@@ -132,25 +111,12 @@ function CourseDetail() {
 
                     <div className="activitiesContainer">
 
-                        {selectedCourse ? (<>
-
-                            <ul>
-                                <li>
-                                    <i className="fa fa-video-camera fa-lg"></i>
-                                    <NavLink to="/collaborate">Create Lecture</NavLink>
-                                </li>
-                            </ul>
-
-                        </>) : (
-                            <>
-                                <ul>
-                                    <li>
-                                        <i className="fa fa-video-camera fa-lg"></i>
-                                        <NavLink to="/collaborate">Join Lecture</NavLink>
-                                    </li>
-                                </ul>
-                            </>
-                        )}
+                        <ul>
+                            <li>
+                                <i className="fa fa-video-camera fa-lg"></i>
+                                <NavLink to="/collaborate">Join Lecture</NavLink>
+                            </li>
+                        </ul>
 
                     </div>
 
