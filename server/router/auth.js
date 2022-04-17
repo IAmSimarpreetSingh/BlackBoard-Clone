@@ -75,7 +75,7 @@ router.post('/register', async (req, res) => {
 router.post('/signin', async (req, res) => {
 
     try {
-    
+
         const { uid, password } = req.body;
 
         if (!uid || !password) {
@@ -93,7 +93,7 @@ router.post('/signin', async (req, res) => {
 
             res.cookie("jwtoken", token, {
                 expires: new Date(Date.now() + 2592000000),
-                httpOnly:true,
+                httpOnly: true,
             });
 
             if (!isMatch) {
@@ -116,7 +116,7 @@ router.post('/signin', async (req, res) => {
 
 // Profile Page
 
-router.get('/profile', authenticate ,(req, res) => { 
+router.get('/profile', authenticate, (req, res) => {
     res.send(req.rootUser);
 });
 
@@ -125,7 +125,7 @@ router.get('/courses', authenticate, (req, res) => {
 });
 
 router.get('/signout', (req, res) => {
-    res.clearCookie('jwtoken', {path:'/'});
+    res.clearCookie('jwtoken', { path: '/' });
     res.status(200).send('User Logout');
 });
 

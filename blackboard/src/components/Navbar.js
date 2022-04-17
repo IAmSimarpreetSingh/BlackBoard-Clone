@@ -9,9 +9,6 @@ const toggle = () => {
     console.log('inside toggle function');
     document.getElementById('side-bar').classList.toggle('show');
     document.getElementById('side-bar-links').classList.toggle('show');
-    document.getElementById('bottom-content').classList.toggle('show');
-
-    
     document.getElementById('mainContainer').classList.toggle('hide');
 
 };
@@ -35,34 +32,12 @@ const Navbar = () => {
                             <i className="fa fa-user fa-lg"></i>
                             <NavLink to="/profile">Profile</NavLink>
                         </li>
-                        <li>
-                            <i className="fa fa-globe fa-lg"></i>
-                            <NavLink to="/activity">Activity Stream</NavLink>
-                        </li>
+
                         <li className="active">
                             <i className="fa fa-book fa-lg"></i>
                             <NavLink to="/courses">Courses</NavLink>
                         </li>
-                        <li>
-                            <i className="fa fa-sitemap fa-lg"></i>
-                            <NavLink to="/organizations">Organizations</NavLink>
-                        </li>
-                        <li>
-                            <i className="fa fa-calendar fa-lg"></i>
-                            <NavLink to="/calender">Calendar</NavLink>
-                        </li>
-                        <li>
-                            <i className="fa fa-comment fa-lg"></i>
-                            <NavLink to="/messages">Messages</NavLink>
-                        </li>
-                        <li>
-                            <i className="fa fa-file-text fa-lg"></i>
-                            <NavLink to="/grades">Grades</NavLink>
-                        </li>
-                        <li>
-                            <i className="fa fa-cog fa-lg"></i>
-                            <NavLink to="/tools">Tools</NavLink>
-                        </li>
+
                         <li>
                             <i className="fa fa-sign-out fa-lg"></i>
                             <NavLink to="/signout">Sign Out</NavLink>
@@ -70,24 +45,10 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <footer id="bottom-content">
-                    <NavLink to="#">Privacy</NavLink>
-                    <br />
-                    <NavLink to="#">Terms</NavLink>
-                </footer>
-
             </nav>
         </>
     )
 }
-
-
-// Toggle navbar 
-// const toggleBtnEle = document.getElementById('icon');
-// const sideBarEle = document.getElementById('side-bar');
-// const ulContentEle = document.getElementById('side-bar-links');
-// const footerContentEle = document.getElementById('bottom-content');
-
 
 
 export default Navbar

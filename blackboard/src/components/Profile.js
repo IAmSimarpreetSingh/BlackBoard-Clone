@@ -32,8 +32,8 @@ function Profile() {
 
             const data = await res.json();
 
-            // console.log(data);
             setUserData(data);
+
 
             if (!res === 200) {
                 const err = new Error(res.error);
@@ -48,7 +48,7 @@ function Profile() {
 
     useEffect(() => {
         callProfilePage();
-    }, );
+    }, []);
 
     return (
         <div className="profileContainer">

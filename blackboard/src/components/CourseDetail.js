@@ -5,7 +5,6 @@ import { useHistory, NavLink } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
 import { css } from '@emotion/react';
 import Avtar from '../img/avtar.png';
-// import Test from '../img/test.png';
 import Content from '../img/course-outline-zero-state-illustration.png';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -23,6 +22,7 @@ function CourseDetail() {
     let course;
     const [courseData, setCourseData] = useState();
     const [selectedCourse, setSelectedCourse] = useState();
+    const [role, setRole] = useState()
 
     const callCourses = async () => {
         try {
@@ -37,10 +37,27 @@ function CourseDetail() {
             });
 
             const data = await res.json();
-
-            // console.log(data);
-
             setCourseData(data);
+
+
+
+            const profile = await fetch('/profile', {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                credentials: "include"
+            });
+
+            const profileData = await profile.json();
+
+            if (profileData.role === "teacher") {
+                setRole(true)
+            } else {
+                setRole(false)
+            }
+
 
             if (!res === 200) {
                 throw Error(res.error);
@@ -49,10 +66,15 @@ function CourseDetail() {
         } catch (err) {
             console.log(err);
         }
+
+        setTimeout(() => {
+            document.getElementById("Clicked").click();
+        }, 2000);
+
     };
 
-    const getCourse = () => {
-        const courseID = localStorage.getItem('courseID');
+    const getCourse = async () => {
+        const courseID = await localStorage.getItem('courseID');
         const ID = JSON.parse(courseID);
 
         const clickedCourse = courseData.courses;
@@ -65,14 +87,8 @@ function CourseDetail() {
             }
         });
 
-        // console.log(course.id);
-        // console.log(course.code);
-        // console.log(course.name);
-        // console.log(course.teacher);
-        // console.log("------------------------------");
-        // console.log(selectedCourse);
-
     };
+
 
     useEffect(() => {
 
@@ -80,7 +96,7 @@ function CourseDetail() {
 
     }, []);
 
-
+    console.log(role)
 
     return (
         <div className="CourseDetailMainDiv">
@@ -116,36 +132,29 @@ function CourseDetail() {
 
                     <div className="activitiesContainer">
 
-                        <ul>
-                            <li>
-                                <i className="fa fa-user fa-lg"></i>
-                                <NavLink to="/profile">Roster</NavLink>
-                            </li>
-                            <li>
-                                <i className="fa fa-video-camera fa-lg"></i>
-                                <NavLink to="/collaborate">Blackboard Collaborate</NavLink>
-                            </li>
-                            <li>
-                                <i className="fa fa-file-text fa-lg"></i>
-                                <NavLink to="/courses-detail">Attendance</NavLink>
-                            </li>
-                            <li>
-                                <i className="fa fa-sitemap fa-lg"></i>
-                                <NavLink to="/courses-detail">Groups</NavLink>
-                            </li>
-                            <li>
-                                <i className="fa fa-bullhorn fa-lg"></i>
-                                <NavLink to="/courses-detail">Announcement</NavLink>
-                            </li>
-                            <li>
-                                <i className="fa fa-book  fa-lg"></i>
-                                <NavLink to="/courses-detail">Books and Tools</NavLink>
-                            </li>
-                        </ul>
+                        {selectedCourse ? (<>
+
+                            <ul>
+                                <li>
+                                    <i className="fa fa-video-camera fa-lg"></i>
+                                    <NavLink to="/collaborate">Create Lecture</NavLink>
+                                </li>
+                            </ul>
+
+                        </>) : (
+                            <>
+                                <ul>
+                                    <li>
+                                        <i className="fa fa-video-camera fa-lg"></i>
+                                        <NavLink to="/collaborate">Join Lecture</NavLink>
+                                    </li>
+                                </ul>
+                            </>
+                        )}
 
                     </div>
 
-                    <div className="courseContentContainer" onClick={ getCourse }>
+                    <div className="courseContentContainer" id="Clicked" onClick={getCourse}>
 
                         <h2>Course Content</h2>
                         <hr className="HorizontalHR" />
@@ -154,17 +163,6 @@ function CourseDetail() {
                             <img src={Content} alt="No-Content" />
                             <h2>Content is on the way!</h2>
                         </div>
-
-                        {/* <div className="QuizContainer">
-
-                            <div className="Quiz">  
-
-                                <img src={ Test } alt="TestIcon" />
-                                <NavLink to="/quiz-view">Quiz</NavLink>
-                            
-                            </div>
-
-                        </div> */}
 
                     </div>
                 </div>

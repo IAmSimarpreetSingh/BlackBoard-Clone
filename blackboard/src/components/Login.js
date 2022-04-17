@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/login.css';
-import { useHistory, NavLink  } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import blackBoardLogo from '../img/bb-corp-logo.png';
 
 
@@ -27,7 +27,7 @@ const Login = () => {
         const data = res.json();
 
         if (res.status === 400 || !data) {
-            window.alert("invalid");
+            window.alert("INVALID");
         } else {
             history.push('/courses');
         }
@@ -139,7 +139,7 @@ const Login = () => {
                         <li className="listStyleLogin">
                             <input
                                 className="inputStyleLogin"
-                            
+
                                 id="uid-input"
                                 type="text"
                                 placeholder="Username"
@@ -150,7 +150,7 @@ const Login = () => {
                         <li className="listStyleLogin">
                             <input
                                 className="inputStyleLogin"
-                            
+
                                 id="password-input"
                                 type="password"
                                 placeholder="Password"
@@ -167,7 +167,7 @@ const Login = () => {
                         <br />
                         <small className="bottomSmallLogin" >© 2021 Simarpreet Inc. All Rights Reserved. </small>
                         <br />
-                        <NavLink className="aPrivacyLogin" to="#">Help</NavLink> 
+                        <NavLink className="aPrivacyLogin" to="#">Help</NavLink>
                         <NavLink className="aPrivacyLogin" to="#">Privacy and Terms of Use</NavLink>
                     </div>
 

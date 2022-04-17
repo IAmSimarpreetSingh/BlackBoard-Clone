@@ -21,7 +21,6 @@ const Home = () => {
 
     let history = useHistory();
 
-    // const [course, setCourse] = useState({ data: "" });
     const [courseData, setCourseData] = useState();
 
     const callCoursesPage = async () => {
@@ -38,15 +37,7 @@ const Home = () => {
 
             const data = await res.json();
 
-            // console.log(data);
-
             setCourseData(data);
-
-
-            // courseData.courses.map((data, id) => {
-
-            //     console.log(data);
-            // })
 
             if (!res === 200) {
                 throw Error(res.error);
@@ -56,13 +47,6 @@ const Home = () => {
             console.log(err);
         }
     };
-
-    // useEffect(() => {
-    //     const coursesList = JSON.parse(localStorage.getItem("courses"));
-    //     if(coursesList === undefined) {
-    //         setCourseData(prev => ({ ...prev, ...coursesList }));
-    //     }
-    // }, []);
 
     useEffect(() => {
 
@@ -74,9 +58,8 @@ const Home = () => {
 
     const courseClicked = (data) => {
 
-        // setCourse({ data: document.getElementById('courseDetails').textContent });
         localStorage.setItem('courseID', JSON.stringify(data));
-        
+
         history.push('/courses-detail');
 
     };
@@ -108,8 +91,8 @@ const Home = () => {
                 <div className="courses-container">
 
                     {courseData ? courseData.courses.map((data, id) => <>
-                        <div className="courses">
-                            <div className="courses-detail" onClick={() => {courseClicked(data.id)}}>
+                        <div className="courses" key={id}>
+                            <div className="courses-detail" onClick={() => { courseClicked(data.id) }}>
                                 <h4 className="course-code">{data.code}</h4>
                                 <h4 className="course-name" id="courseDetails">{data.name}</h4>
                                 <h5 className="course-teacher">{data.teacher} | <span>More info</span></h5>

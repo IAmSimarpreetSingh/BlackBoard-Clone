@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         id: {
             type: Int16Array,
-            required:true
+            required: true
         },
         code: {
             type: String,

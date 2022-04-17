@@ -8,10 +8,10 @@ function BlackboardCollaborate() {
     const [inCall, setInCall] = useState(false);
 
     return (
-        <div className="CollaborateVideoClass">           
+        <div className="CollaborateVideoClass">
             {inCall ? <VideoCall setInCall={setInCall} /> : (
                 <Button variant="contained" color="primary" onClick={() => setInCall(true)}>
-                    Join
+                    Start
                 </Button>
             )}
         </div>
