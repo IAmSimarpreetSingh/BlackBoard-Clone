@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/navbar.css';
 import navLogo from '../img/CustomNavigationLogo.png';
 import 'font-awesome/css/font-awesome.min.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 
 const toggle = () => {
@@ -15,6 +15,9 @@ const toggle = () => {
 
 
 const Navbar = () => {
+
+    const { pathname } = useLocation()
+
     return (
         <>
             <nav className="side-bar" id="side-bar">
@@ -28,12 +31,12 @@ const Navbar = () => {
                 <div className="side-bar-links" id="side-bar-links">
 
                     <ul>
-                        <li>
+                        <li className={pathname === '/profile' ? 'active' : ''}>
                             <i className="fa fa-user fa-lg"></i>
                             <NavLink to="/profile">Profile</NavLink>
                         </li>
 
-                        <li className="active">
+                        <li className={pathname === '/courses' ? 'active' : ''}>
                             <i className="fa fa-book fa-lg"></i>
                             <NavLink to="/courses">Courses</NavLink>
                         </li>

@@ -1,6 +1,6 @@
 
 .mainLoginContainer {
-    background: #000000;
+    background: #272727;
     display: flex;
     position: relative;
     justify-content: center;
@@ -83,7 +83,7 @@
 
 .buttonStyleLogin:active {
     background: #dd7bdd;
-    color: #000000;
+    color: #272727;
     border-color: #fff;
 }
 

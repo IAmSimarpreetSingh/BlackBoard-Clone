@@ -6,7 +6,7 @@
 
 .side-bar {
     width: 15%;
-    background-color: #3dcec4;
+    background-color: #CE3D3D;
     height: 100%;
     position: fixed;
     overflow: hidden;
@@ -60,12 +60,12 @@
 }
 
 .side-bar #side-bar-links ul li.active {
-    background-color: #3dcec4;
+    background-color: #CE3D3D;
     border-left: 5px solid #fff;
 }
 
 .side-bar #side-bar-links ul li:hover {
-    background-color: #3dcec4;
+    background-color: #CE3D3D;
 }
 
 .side-bar #side-bar-links ul li a {
@@ -110,7 +110,7 @@
     }
 
     .side-bar #side-bar-links ul li:hover {
-        background-color: #3dcec4;
+        background-color: #CE3D3D;
     }
 
     nav.show {
