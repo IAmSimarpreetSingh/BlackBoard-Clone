@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/navbar.css';
-import navLogo from '../img/CustomNavigationLogo.png';
 import 'font-awesome/css/font-awesome.min.css';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -25,7 +24,7 @@ const Navbar = () => {
                     <i className="fa fa-bars"></i>
                 </label>
                 <div className="logo">
-                    <img src={navLogo} alt="LogoImage" />
+                    <h1>WeBoard</h1>
                 </div>
 
                 <div className="side-bar-links" id="side-bar-links">

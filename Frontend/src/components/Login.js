@@ -1,7 +1,6 @@
 import React from 'react';
 import '../css/login.css';
 import { useHistory, NavLink } from 'react-router-dom';
-import blackBoardLogo from '../img/bb-corp-logo.png';
 
 
 const Login = () => {
@@ -37,7 +36,7 @@ const Login = () => {
     return (
         <div className="mainLoginContainer">
             <div className="loginContainer">
-                <img src={blackBoardLogo} className="BBlogoImg" alt="BBLogo" />
+                <h1>WeBoard</h1>
                 <div className="inputContainerLogin">
 
                     <ul>
@@ -68,7 +67,7 @@ const Login = () => {
                     <button className="buttonStyleLogin" type="button" onClick={loginUser}>Sign In</button>
 
                     <div className="bottomLinksLogin">
-                        <NavLink className="aCatelogLogin" to="#">View Course Catelog</NavLink>
+                        <NavLink className="aCatelogLogin" to="/admin">Admin Login</NavLink>
                         <br />
                         <small className="bottomSmallLogin" >© 2021 Simarpreet Inc. All Rights Reserved. </small>
                         <br />

@@ -32,8 +32,9 @@
     align-items: center;
 }
 
-.side-bar div.logo img {
-    width: 180px;
+.side-bar div.logo > h1 {
+    color: #fff;
+    font-size: 3rem;
 }
 
 .side-bar #side-bar-links {

@@ -1,6 +1,7 @@
 const express = require('express');
 const bcryptjs = require('bcryptjs');
 const authenticate = require('../middleware/authenticate');
+const adminauth = require('../middleware/authenticate')
 const app = express();
 const cookies = require("cookie-parser");
 app.use(cookies());
@@ -10,6 +11,7 @@ const router = express.Router();
 require('../db/conn');
 
 const User = require("../model/userSchema");
+const Admin = require("../model/adminSchema")
 
 // Middleware
 // This will check if user is authenticated 
@@ -52,16 +54,39 @@ router.post('/register', async (req, res) => {
         if (dataSaved) {
             res.status(201).json({ message: "Entered Success" });
 
-            // JSON.stringify(courses);
+        }
 
-            //     for (let i = 0; i < courses.length; i++) {
-            //         console.log(`
-            //             Course Name : ${courses[i].name} 
-            //             Teacher Name : ${courses[i].teacher} 
-            //             `);
-            //     }
-            // } else {
-            //     res.status(500).json({ error: "Failed" })
+    } catch (err) {
+        console.log(err);
+    }
+
+});
+
+//Register Admin
+router.post('/registerAdmin', async (req, res) => {
+
+    const { name, uid, password } = req.body;
+
+    if (!name || !uid || !password) {
+        return res.status(422).json({ error: "Empty Field" });
+    }
+
+    try {
+
+        const userExist = await Admin.findOne({ uid: uid });
+
+        if (userExist) {
+            return res.status(422).json({ error: "UID allready Exist" });
+        }
+
+        const admin = new Admin({ name, uid, password });
+
+        // Password Hashing -> 
+
+        const dataSaved = await admin.save();
+
+        if (dataSaved) {
+            res.status(201).json({ message: "Entered Success" });
         }
 
     } catch (err) {
@@ -113,11 +138,56 @@ router.post('/signin', async (req, res) => {
 
 });
 
+//ADMIN LOGIN
+router.post('/admin', async (req, res) => {
+
+    try {
+
+        const { uid, password } = req.body;
+
+        if (!uid || !password) {
+            return res.status(400).json({ error: "Empty Data" });
+        }
+
+        const userUID = await Admin.findOne({ uid: uid });
+
+        if (userUID) {
+
+            // Hash Password Check
+            const isMatch = await bcryptjs.compare(password, userUID.password);
+
+            const token = await userUID.generateAuthToken();
+
+            res.cookie("jwtoken", token, {
+                expires: new Date(Date.now() + 2592000000),
+                httpOnly: true,
+            });
+
+            if (!isMatch) {
+                return res.status(400).json({ error: "Pass Error" });
+            } else {
+                return res.status(200).json({ message: userUID });
+            }
+
+        } else {
+            return res.status(400).json({ error: "No uid found" });
+        }
+
+
+    } catch (err) {
+        console.log(err);
+    }
+
+});
+
 
 // Profile Page
-
 router.get('/profile', authenticate, (req, res) => {
     res.send(req.rootUser);
+});
+
+router.get('/adminpanel', adminauth, (req, res) => {
+    res.send(req.adminUser);
 });
 
 router.get('/courses', authenticate, (req, res) => {
